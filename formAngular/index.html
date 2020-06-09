@@ -1,0 +1,52 @@
+<!--
+<!DOCTYPE html>
+<html ng-app="meuModulo">
+    <head> 
+        <title>
+            Angular JS
+        </title>
+    </head>
+    <body ng-controller="indexController">
+        <header>
+            {{titulo}}
+        </header>
+        <script src = "angular/angular.min.js"></script>
+        <script type = "text/javascript">
+        var app = angular.module("meuModulo",[]);
+        app.controller("indexController", function($scope){
+            $scope.titulo = "Sistema";
+        });
+        </script>
+    </body>
+</html>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src = "angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form novalidate>
+    Nome:<br>
+    <input type="text" ng-model="user.Nome"><br>
+    Sobrenome:<br>
+    <input type="text" ng-model="user.Sobrenome">
+    <br><br>
+    <button ng-click="resetar()">Reiniciar</button>
+  </form>
+  <p>campo1 = {{user}}</p>
+  <p>campo2 = {{master}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+    $scope.master = {Nome:"Alan", Sobrenome:"De Souza"};
+    $scope.resetar = function() {
+        $scope.user = angular.copy($scope.master);
+    };
+    $scope.resetar();
+});
+</script>
+</body>
+</html>
